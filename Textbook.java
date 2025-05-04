@@ -5,15 +5,24 @@ public class Textbook extends Book
     public Textbook (String title, double price, int edition)
     {
         super(title,price);
-        this.edition=edition
+        this.edition=edition; //this. refers to instance var and edition refers to paramter
+    }
+
+    public int getEdition()
+    {
+        return edition;
     }
     public String getBookInfo()
     {
-        return (super() + " - " + edition);
+        return (super.getBookInfo() + " - " + edition);
     }
 
-    public boolean canSubstitueFor()
+    public boolean canSubstituteFor(Textbook other)
     {
-
+        if (getTitle().equals(other.getTitle()))
+        {
+            return edition>= other.edition;
+        }
+        return false;
     }
 }
